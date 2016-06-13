@@ -1,16 +1,14 @@
 export class App {
-  // Properties
-  message = 'Welcome to Aurelia!';
-  firstNum = 0;
-  secondNum = 0;
+  // Implement configureRouter method
+  configureRouter(config, router) {
+    config.title = 'Scotch IG';
+    // Use map to set array of possible routes
+    config.map([
+      { route: ['','home'], name: 'home', moduleId: './home', nav: true, title:'Home' },
+      { route: 'me', name: 'me',  moduleId: './me',    nav: true, title:'Me' }
+    ]);
 
-  // Get method that returns the sum of the two integer properties
-  get sum () {
-    return parseInt(this.firstNum) + parseInt(this.secondNum);
+    // Create a binding to the router object
+    this.router = router;
   }
-
-  submit () {
-    alert(`Sum of ${this.firstNum} and ${this.secondNum} is ${this.sum}`)
-  }
-
 }
